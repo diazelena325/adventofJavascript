@@ -94,7 +94,7 @@ const LoginPage = () => {
       </Form>
       <div className="auth-links">
         <Link to={routes.forgotPassword()}>Forgot Password?</Link> •{' '}
-        <Link to={routes.signup()}>Need an account?</Link>
+        <Link to={routes.signup()}>Need an account? Sign up</Link>
       </div>
     </>
   )
