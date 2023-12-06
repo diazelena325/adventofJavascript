@@ -1,15 +1,7 @@
 import { useRef } from 'react'
 import { useEffect } from 'react'
 
-import {
-  Form,
-  Label,
-  TextField,
-  PasswordField,
-  FieldError,
-  Submit,
-  EmailField,
-} from '@redwoodjs/forms'
+import { Form, Label, FieldError, Submit, EmailField } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
 import { toast, Toaster } from '@redwoodjs/web/toast'

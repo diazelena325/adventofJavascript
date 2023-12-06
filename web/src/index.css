@@ -38,6 +38,7 @@
   input[type='number'],
   input[type='tel'],
   input[type='email'],
+  input[type='date'],
   input[type='text'] {
     @apply h-[100px] w-full px-7 font-sans text-2xl;
   }
@@ -66,7 +67,7 @@
   }
 
   input[type='checkbox'] + label {
-    @apply flex cursor-pointer items-center gap-4 font-handwriting text-3xl uppercase;
+    @apply flex cursor-pointer items-center gap-4 font-handwriting text-3xl uppercase dark:text-white;
   }
 
   input[type='checkbox'] + label:before {
