@@ -3,6 +3,7 @@ import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/dist/toast'
 
 import Card from '../Card/Card'
+import ListInvitesCell from '../ListInvitesCell'
 import RoundButton from '../RoundButton/RoundButton'
 
 const CREATE_INVITE_MUTATION = gql`
@@ -65,6 +66,7 @@ const InviteGroup = ({ id }) => {
       </Form>
 
       <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+        <ListInvitesCell id={id} />
         <Card
           avatar={{
             alt: 'Avatar',

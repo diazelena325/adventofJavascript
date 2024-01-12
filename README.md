@@ -127,6 +127,7 @@ The best way to learn Redwood is by going through the comprehensive [tutorial](h
 
 
 ## Dev Terminal Notes
+temporay database located on supabase
 
 To run dev:
 ```
@@ -134,6 +135,8 @@ yarn rw dev
 ```
 
 Redwood GraphQL Playground:
-```
+http://localhost:<port>/graphql
 
+```
+yarn rw prisma studio
 ```
