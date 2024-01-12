@@ -11267,6 +11267,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "date-fns@npm:3.0.1"
+  checksum: d840a0b25ba4c262868df804d1f4939e809326b6fbdacc04f7f5184c2af9891de84ca5620777a98b077fad52777928032bb2cd8cd3a99d22eb1c75220f0aae34
+  languageName: node
+  linkType: hard
+
 "debounce@npm:^1.2.0":
   version: 1.2.1
   resolution: "debounce@npm:1.2.1"
@@ -23537,6 +23544,7 @@ __metadata:
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
     autoprefixer: ^10.4.16
+    date-fns: ^3.0.1
     framer-motion: ^10.16.5
     postcss: ^8.4.31
     postcss-loader: ^7.3.3
