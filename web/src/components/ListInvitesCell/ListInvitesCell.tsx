@@ -1,6 +1,13 @@
 import type { ListInvitesQuery } from 'types/graphql'
 
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import {
+  type CellSuccessProps,
+  type CellFailureProps,
+  useMutation,
+} from '@redwoodjs/web'
+import { toast } from '@redwoodjs/web/dist/toast'
+
+import Card from '../Card/Card'
 
 export const QUERY = gql`
   query ListInvitesQuery($id: String!) {
@@ -18,7 +25,14 @@ export const QUERY = gql`
     }
   }
 `
-
+const DELETE_INVITE_MUTATION = gql`
+  mutation deleteInviteMutation($id: String!) {
+    deleteInvite(id: $id) {
+      id
+      name
+    }
+  }
+`
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Empty</div>
@@ -28,11 +42,39 @@ export const Failure = ({ error }: CellFailureProps) => (
 )
 
 export const Success = ({ event }: CellSuccessProps<ListInvitesQuery>) => {
-  return (
-    <ul>
-      {event.invite.map((item) => {
-        return <li key={item.id}>{JSON.stringify(item)}</li>
-      })}
-    </ul>
-  )
+  const [deleteInvite] = useMutation(DELETE_INVITE_MUTATION, {
+    onCompleted: () => {
+      toast.success('Invite deleted')
+    },
+    onError: (error) => {
+      toast.error('Error deleting invite: ' + error.message)
+      console.log(error)
+    },
+    refetchQueries: [QUERY],
+  })
+
+  const handleDelete = (inviteId) => {
+    deleteInvite({
+      variables: {
+        id: inviteId,
+      },
+    })
+  }
+
+  return event.invite.map((item) => {
+    return (
+      <Card
+        key={item.id}
+        avatar={{
+          alt: item.name,
+          avatar: item?.user?.avatar,
+          letter: item.name.split('')[0],
+        }}
+        email={item.email}
+        name={item.name}
+        isCloseShowing={true}
+        handleClose={() => handleDelete(item.id)}
+      />
+    )
+  })
 }

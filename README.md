@@ -140,3 +140,7 @@ http://localhost:<port>/graphql
 ```
 yarn rw prisma studio
 ```
+update changes to schema.prisma
+```
+ yarn rw prisma migrate dev
+ ```

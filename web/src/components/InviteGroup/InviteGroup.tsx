@@ -67,22 +67,6 @@ const InviteGroup = ({ id }) => {
 
       <div className="grid grid-cols-2 gap-x-12 gap-y-8">
         <ListInvitesCell id={id} />
-        <Card
-          avatar={{
-            alt: 'Avatar',
-            avatar: 'https://picsum.photos/seed/1701322447715/300/300',
-          }}
-          email="email@email.com"
-          name="Amy Dutton"
-        />
-        <Card
-          avatar={{
-            alt: 'Avatar',
-            avatar: 'https://picsum.photos/seed/1701322447715/300/300',
-          }}
-          email="email@email.com"
-          name="Amy Dutton"
-        />
       </div>
     </div>
   )

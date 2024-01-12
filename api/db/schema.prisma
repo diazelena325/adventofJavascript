@@ -24,12 +24,12 @@ model User {
   createdAt           DateTime   @default(now())
   updatedAt           DateTime   @updatedAt
   role                Role       @default(USER)
-  status              Invite[]
   santa               Pairing[]  @relation(name: "Pairing_Santa")
   person              Pairing[]  @relation(name: "Pairing_Person")
   wishList            WishList[]
   thankYouAuthor      ThankYou[] @relation(name: "ThankYou_User")
   thankYouToUser      ThankYou[] @relation(name: "ThankYou_ToUser")
+  invite              Invite[]
 }
 
 enum Role {
@@ -61,8 +61,8 @@ model Event {
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
   sendReminder Boolean    @default(false)
-  Invite       Invite[]
-  Pairing      Pairing[]
+  invite       Invite[]
+  pairing      Pairing[]
   wishlist     WishList[]
   thankYou     ThankYou[]
 }
