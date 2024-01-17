@@ -11,7 +11,7 @@ const GroupInvitePage = ({ id }) => {
       <EventHeaderCell id={id} />
 
       <InviteGroup id={id} />
-      <EditEventCell />
+      <EditEventCell id={id} />
     </>
   )
 }

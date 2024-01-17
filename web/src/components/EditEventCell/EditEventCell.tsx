@@ -9,9 +9,12 @@ import EventForm from '../EventForm/EventForm'
 import SlideInPanel from '../SlideInPanel/SlideInPanel'
 
 export const QUERY = gql`
-  query FindEditEventQuery($id: Int!) {
-    editEvent: editEvent(id: $id) {
+  query FindEditEventQuery($id: String!) {
+    event(id: $id) {
       id
+      date
+      name
+      sendReminder
     }
   }
 `
@@ -27,8 +30,9 @@ export const Failure = ({
 )
 
 export const Success = ({
-  editEvent,
+  event,
 }: CellSuccessProps<FindEditEventQuery, FindEditEventQueryVariables>) => {
+  console.log({ event })
   return (
     <div>
       <SlideInPanel handleClose={undefined}>
@@ -38,7 +42,15 @@ export const Success = ({
         <h2 className="mb-10 font-handwriting text-3xl uppercase text-white">
           Edit the current event
         </h2>
-        <EventForm handleSubmit={undefined} loading={undefined} />
+        <EventForm
+          handleSubmit={undefined}
+          loading={undefined}
+          defaultValues={{
+            eventName: event?.name,
+            eventDate: event?.date,
+            eventReminder: event?.sendReminder,
+          }}
+        />
       </SlideInPanel>
     </div>
   )
